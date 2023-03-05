@@ -57,11 +57,12 @@ const AmidaButton = styled.button`
 
 const Form = () => {
   const startInput = useInput('');
-  const [startOptions, setStartOptions] = useState<Array<string | number>>([]);
+  const [startOptions, setStartOptions] = useState<Array<string>>([]);
 
   const addStartOptions = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
 
+    if (startInput.input === '') return;
     setStartOptions((prevState) => [...prevState, startInput.input]);
     startInput.clearInput();
   };
