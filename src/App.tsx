@@ -5,7 +5,7 @@ import Form from './components/Form';
 const Main = styled.main`
   max-width: 1200px;
   margin: 0 auto;
-  padding-top: 80px;
+  padding-top: 56px;
 `;
 
 const Title = styled.h1`
