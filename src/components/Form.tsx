@@ -1,14 +1,17 @@
 import { useState } from 'react';
+import useInput from '../hooks/useInput';
 import styled from 'styled-components';
 
 const AmidaForm = styled.div`
-  margin-bottom: 24px;
+  max-width: 704px;
+  margin: 0 auto 24px;
 `;
 
 const AmidaInputWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 16px;
 `;
 
 const AmidaLabel = styled.label`
@@ -24,6 +27,7 @@ const AmidaInput = styled.input`
   padding: 0 16px;
   border: 1px solid #e5e5e5;
   border-radius: 8px;
+  caret-color: #fa243c;
   text-align: left;
   &::placeholder {
     color: #767676;
@@ -52,18 +56,14 @@ const AmidaButton = styled.button`
 `;
 
 const Form = () => {
-  const [startInput, setStartInput] = useState<string>('');
-  const [startOptions, setStartOptions] = useState<string[]>([]);
-
-  const getStartInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setStartInput(event.target.value);
-  };
+  const startInput = useInput('');
+  const [startOptions, setStartOptions] = useState<Array<string | number>>([]);
 
   const addStartOptions = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
 
-    setStartOptions((prevState) => [...prevState, startInput]);
-    setStartInput('');
+    setStartOptions((prevState) => [...prevState, startInput.input]);
+    startInput.clearInput();
   };
 
   const clearAllOptions = (event: React.MouseEvent<HTMLElement>) => {
@@ -80,8 +80,8 @@ const Form = () => {
           type="text"
           name="start"
           placeholder="スタートの選択肢を入力して下さい"
-          value={startInput}
-          onChange={getStartInput}
+          value={startInput.input}
+          onChange={startInput.handlInput}
         />
         <AmidaButton onClick={addStartOptions}>追加</AmidaButton>
         <AmidaButton onClick={clearAllOptions}>クリア</AmidaButton>
