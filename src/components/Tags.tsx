@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const AmidaTags = styled.ul`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 16px 16px;
+  gap: 8px 16px;
 `;
 
 const AmidaTag = styled.li`

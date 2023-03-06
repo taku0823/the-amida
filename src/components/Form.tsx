@@ -64,6 +64,7 @@ const Form = () => {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.nativeEvent.isComposing || event.key !== 'Enter') return;
 
+    if (startInput.input === '') return;
     setStartOptions((prevState) => [...prevState, startInput.input]);
     startInput.clearInput();
   };
