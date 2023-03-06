@@ -120,6 +120,13 @@ const Form = () => {
   const startInput = useInput('');
   const [startOptions, setStartOptions] = useState<Array<string>>([]);
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.nativeEvent.isComposing || event.key !== 'Enter') return;
+
+    setStartOptions((prevState) => [...prevState, startInput.input]);
+    startInput.clearInput();
+  };
+
   const addStartOptions = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
 
@@ -148,6 +155,7 @@ const Form = () => {
           placeholder="スタートの選択肢を入力して下さい"
           value={startInput.input}
           onChange={startInput.handlInput}
+          onKeyDown={handleKeyDown}
         />
         <AmidaButton onClick={addStartOptions}>追加</AmidaButton>
         <AmidaButton onClick={clearAllOptions}>クリア</AmidaButton>
