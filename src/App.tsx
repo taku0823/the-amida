@@ -16,7 +16,7 @@ const Title = styled.h1`
   text-align: center;
 `;
 
-function App() {
+const App = () => {
   return (
     <>
       <GlobalStyle />
@@ -26,6 +26,6 @@ function App() {
       </Main>
     </>
   );
-}
+};
 
 export default App;
