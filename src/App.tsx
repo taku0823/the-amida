@@ -1,5 +1,5 @@
 import Form from './components/Form';
-import { StartOptionsProvider } from './context/StartOptionsContext';
+import { StartOptionsProvider, GoalOptionsProvider } from './context/OptionsContext';
 import styled from 'styled-components';
 import GlobalStyle from './theme/globalStyles';
 
@@ -22,10 +22,12 @@ const App = () => {
     <>
       <GlobalStyle />
       <StartOptionsProvider>
-        <Main>
-          <Title>THE あみだ</Title>
-          <Form />
-        </Main>
+        <GoalOptionsProvider>
+          <Main>
+            <Title>THE あみだ</Title>
+            <Form />
+          </Main>
+        </GoalOptionsProvider>
       </StartOptionsProvider>
     </>
   );

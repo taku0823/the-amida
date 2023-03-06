@@ -1,7 +1,8 @@
-import { useContext } from 'react';
-import { StartOptionsContext } from '../context/StartOptionsContext';
 import styled from 'styled-components';
 
+const AmidaTagsWrapper = styled.div`
+  min-height: 138px;
+`;
 const AmidaTags = styled.ul`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -63,22 +64,28 @@ const AmidaDelete = styled.span`
   }
 `;
 
-const Tags = () => {
-  const { startOptions, setStartOptions } = useContext(StartOptionsContext);
+type Props = {
+  options: string[];
+  setOptions: React.Dispatch<React.SetStateAction<string[]>>;
+  extraHeight?: boolean;
+};
 
+const Tags = ({ options, setOptions, extraHeight }: Props) => {
   const deleteTag = (target: string) => {
-    setStartOptions(startOptions.filter((option) => option !== target));
+    setOptions(options.filter((option) => option !== target));
   };
 
   return (
-    <AmidaTags>
-      {startOptions.map((option) => (
-        <AmidaTag key={option}>
-          {option}
-          <AmidaDelete onClick={() => deleteTag(option)} />
-        </AmidaTag>
-      ))}
-    </AmidaTags>
+    <AmidaTagsWrapper>
+      <AmidaTags>
+        {options.map((option) => (
+          <AmidaTag key={option}>
+            {option}
+            <AmidaDelete onClick={() => deleteTag(option)} />
+          </AmidaTag>
+        ))}
+      </AmidaTags>
+    </AmidaTagsWrapper>
   );
 };
 
