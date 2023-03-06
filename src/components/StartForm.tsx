@@ -12,12 +12,11 @@ const AmidaForm = styled.div`
 const AmidaInputWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin-bottom: 16px;
 `;
 
 const AmidaLabel = styled.label`
-  margin-right: 16px;
   font-weight: bold;
 `;
 
@@ -25,7 +24,6 @@ const AmidaInput = styled.input`
   background: #fff;
   width: 400px;
   height: 40px;
-  margin-right: 16px;
   padding: 0 16px;
   border: 1px solid #e5e5e5;
   border-radius: 8px;
@@ -51,9 +49,6 @@ const AmidaButton = styled.button`
   &:hover {
     background: #fa243c;
     color: #fff;
-  }
-  &:first-of-type {
-    margin-right: 16px;
   }
 `;
 
