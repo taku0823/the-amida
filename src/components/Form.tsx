@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+import { StartOptionsContext } from '../context/StartOptionsContext';
 import useInput from '../hooks/useInput';
 import styled from 'styled-components';
 
@@ -118,7 +119,7 @@ const AmidaDelete = styled.span`
 
 const Form = () => {
   const startInput = useInput('');
-  const [startOptions, setStartOptions] = useState<Array<string>>([]);
+  const { startOptions, setStartOptions } = useContext(StartOptionsContext);
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.nativeEvent.isComposing || event.key !== 'Enter') return;

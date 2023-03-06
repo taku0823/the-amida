@@ -1,6 +1,7 @@
+import Form from './components/Form';
+import { StartOptionsProvider } from './context/StartOptionsContext';
 import styled from 'styled-components';
 import GlobalStyle from './theme/globalStyles';
-import Form from './components/Form';
 
 const Main = styled.main`
   max-width: 1200px;
@@ -20,10 +21,12 @@ const App = () => {
   return (
     <>
       <GlobalStyle />
-      <Main>
-        <Title>THE あみだ</Title>
-        <Form />
-      </Main>
+      <StartOptionsProvider>
+        <Main>
+          <Title>THE あみだ</Title>
+          <Form />
+        </Main>
+      </StartOptionsProvider>
     </>
   );
 };
