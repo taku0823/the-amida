@@ -59,7 +59,7 @@ const AmidaButton = styled.button`
 
 const Form = () => {
   const startInput = useInput('');
-  const { setStartOptions } = useContext(StartOptionsContext);
+  const { startOptions, setStartOptions } = useContext(StartOptionsContext);
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.nativeEvent.isComposing || event.key !== 'Enter') return;
@@ -80,6 +80,7 @@ const Form = () => {
   const clearAllOptions = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
 
+    if (startOptions.length === 0) return;
     setStartOptions([]);
   };
 
