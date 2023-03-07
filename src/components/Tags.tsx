@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const AmidaTagsWrapper = styled.div`
-  min-height: 138px;
+  min-height: 72px;
 `;
 const AmidaTags = styled.ul`
   display: grid;
@@ -70,7 +70,7 @@ type Props = {
   extraHeight?: boolean;
 };
 
-const Tags = ({ options, setOptions, extraHeight }: Props) => {
+const Tags = ({ options, setOptions }: Props) => {
   const deleteTag = (target: string) => {
     setOptions(options.filter((option) => option !== target));
   };

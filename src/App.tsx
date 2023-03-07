@@ -1,4 +1,5 @@
 import Form from './components/Form';
+import Amida from './components/Amida';
 import { StartOptionsProvider, GoalOptionsProvider } from './context/OptionsContext';
 import styled from 'styled-components';
 import GlobalStyle from './theme/globalStyles';
@@ -6,7 +7,7 @@ import GlobalStyle from './theme/globalStyles';
 const Main = styled.main`
   max-width: 1200px;
   margin: 0 auto;
-  padding-top: 56px;
+  padding-top: 32px;
 `;
 
 const Title = styled.h1`
@@ -26,6 +27,7 @@ const App = () => {
           <Main>
             <Title>THE あみだ</Title>
             <Form />
+            <Amida />
           </Main>
         </GoalOptionsProvider>
       </StartOptionsProvider>

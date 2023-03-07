@@ -1,0 +1,25 @@
+table {
+  margin: 0 auto;
+}
+
+.amida_head tr,
+.amida_foot tr {
+  width: 60px;
+  height: 60px;
+  vertical-align: top;
+  position: relative;
+  left: -30px;
+  text-align: center;
+}
+
+.amida_body .pole {
+  border-left: 4px solid #767676;
+  margin: 0px;
+  padding: 0px;
+  height: 15px;
+  width: 60px;
+}
+
+.amida_body .bordered {
+  border-bottom: 4px solid #767676;
+}
